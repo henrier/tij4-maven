@@ -12,7 +12,7 @@ class ClassAsFactory<T> {
   }
 }
 
-class Employee {}	
+class Employee2 {}	//cc//加了一个2，避免跟MultipleInterfaceVariants.java里面的同名内部类重名。
 
 public class InstantiateGenericType {
   public static void main(String[] args) {
