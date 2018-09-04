@@ -10,7 +10,7 @@ public class TypeCounter extends HashMap<Class<?>,Integer>{
   }
   public void count(Object obj) {
     Class<?> type = obj.getClass();
-    if(!baseType.isAssignableFrom(type))
+    if(!baseType.isAssignableFrom(type))                    //同级或是其父类，即type需要是baseType的同级或子类
       throw new RuntimeException(obj + " incorrect type: "
         + type + ", should be type or subtype of "
         + baseType);
@@ -22,7 +22,7 @@ public class TypeCounter extends HashMap<Class<?>,Integer>{
     Class<?> superClass = type.getSuperclass();
     if(superClass != null &&
        baseType.isAssignableFrom(superClass))
-      countClass(superClass);
+      countClass(superClass);                               //递归调用，位于type和baseType之间的类型都会被统计。
   }
   public String toString() {
     StringBuilder result = new StringBuilder("{");

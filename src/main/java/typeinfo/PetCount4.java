@@ -8,7 +8,7 @@ public class PetCount4 {
     TypeCounter counter = new TypeCounter(Pet.class);
     for(Pet pet : Pets.createArray(20)) {
       printnb(pet.getClass().getSimpleName() + " ");
-      counter.count(pet);
+      counter.count(pet);                                      //会导致某些类被重复统计，结果中的Pet类型就被统计了20次。
     }
     print();
     print(counter);
