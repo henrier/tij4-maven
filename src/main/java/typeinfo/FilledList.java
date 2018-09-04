@@ -9,12 +9,12 @@ class CountedInteger {
 
 public class FilledList<T> {
   private Class<T> type;
-  public FilledList(Class<T> type) { this.type = type; }	
+  public FilledList(Class<T> type) { this.type = type; }	 //这个例子想表达，泛型的加入，可以限定入参必须是T类型的Class对象。
   public List<T> create(int nElements) {
     List<T> result = new ArrayList<T>();
     try {
       for(int i = 0; i < nElements; i++)
-        result.add(type.newInstance());
+        result.add(type.newInstance());                      //type作为一个纸箱Class对象的引用，由于泛型，它有了Class对象的类型信息，所以实例化出来的不再是Object类型的。
     } catch(Exception e) {
       throw new RuntimeException(e);
     }
