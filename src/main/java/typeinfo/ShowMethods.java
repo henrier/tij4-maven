@@ -31,21 +31,23 @@ public class ShowMethods {
             Method[] methods = c.getMethods();
             Constructor[] ctors = c.getConstructors();
             if (args.length == 1) {
-                for (Method method : methods)
-                    print(
-                            p.matcher(method.toString()).replaceAll(""));
-                for (Constructor ctor : ctors)
+                for (Method method : methods) {
+                    System.out.println(method.toString());
+                    System.out.println("............");
+                    print(p.matcher(method.toString()).replaceAll(""));
+                }
+                    for (Constructor ctor : ctors)
                     print(p.matcher(ctor.toString()).replaceAll(""));
                 lines = methods.length + ctors.length;
             } else {
                 for (Method method : methods)
-                    if (method.toString().indexOf(args[1]) != -1) {
+                    if (method.toString().indexOf(args[1]) != -1) {                      //只打印匹配第二个参数的方法
                         print(
                                 p.matcher(method.toString()).replaceAll(""));
                         lines++;
                     }
                 for (Constructor ctor : ctors)
-                    if (ctor.toString().indexOf(args[1]) != -1) {
+                    if (ctor.toString().indexOf(args[1]) != -1) {                        //只打印匹配第二个参数的方法
                         print(p.matcher(
                                 ctor.toString()).replaceAll(""));
                         lines++;
