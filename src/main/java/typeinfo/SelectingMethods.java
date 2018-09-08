@@ -8,6 +8,8 @@ import static net.mindview.util.Print.*;
 /**
  * 代理(的调用处理器)
  * 相比于SimpleProxyDemo展示的代理模式，动态代理里面的代理不需要实现被代理类的接口。
+ *
+ * 动态代理解决的问题是：直到运行时，我才知道该如何去代理被代理对象。想象：直到运行时，我才知道
  */
 class MethodSelector implements InvocationHandler {
     private Object proxied;
@@ -68,7 +70,7 @@ class Implementation implements SomeMethods {
 
 class SelectingMethods {
     public static void main(String[] args) {
-        SomeMethods proxy = (SomeMethods) Proxy.newProxyInstance(        //创建动态代理
+        SomeMethods proxy = (SomeMethods) Proxy.newProxyInstance(        //创建动态代理，需要指定类加载器、代理接口、被代理对象。
                 SomeMethods.class.getClassLoader(),
                 new Class[]{SomeMethods.class},
                 new MethodSelector(new Implementation()));
