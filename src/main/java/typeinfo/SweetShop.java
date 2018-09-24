@@ -17,11 +17,11 @@ class Cookie {
 public class SweetShop {
   public static void main(String[] args) {	
     print("inside main");
-    new Candy();
+    new Candy();                                         //编译时检查，Candy必须是已存在的类。
     print("After creating Candy");
     try {
-      Class.forName("Gum");
-    } catch(ClassNotFoundException e) {
+      Class.forName("typeinfo.Gum");                     //直到运行时才能知道Gum类是否真的存在，绕过了编译时检查。
+    } catch(ClassNotFoundException e) {                  //forName方法会抛出一个非运行时异常（受检查的异常。）很有意思，在运行时抛出一个非运行时异常。运行时异常是不受检查的异常。
       print("Couldn't find Gum");
     }
     print("After Class.forName(\"Gum\")");

@@ -47,7 +47,7 @@ public class Shapes {
     }
 
     try {
-      Class clazz2 = Class.forName("Ellipse");                  //相比于Circle等类，在编译时，Ellipse类可以不存在。
+      Class clazz2 = Class.forName("typeinfo.Ellipse");                  //相比于Circle等类，在编译时，Ellipse类可以不存在。
       Ellipse ellipse = (Ellipse) clazz2.newInstance();
       ellipse.say();
     }catch (ClassNotFoundException e) {
